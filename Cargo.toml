@@ -1,4 +1,37 @@
 [package]
+
 name = "lsystem"
 version = "0.1.0"
 authors = ["Axel Magnuson <axelmagn@gmail.com>"]
+
+# A short blurb about the package. This is not rendered in any format when
+# uploaded to crates.io (aka this is not markdown)
+description = "A Library for building L-Systems in rust"
+
+# These URLs point to more information about the repository
+# documentation = "..."
+# homepage = "..."
+repository = "https://github.com/axelmagn/lsystem"
+
+# This points to a file in the repository (relative to this Cargo.toml). The
+# contents of this file are stored and indexed in the registry.
+readme = "README"
+
+# This is a small list of keywords used to categorize and search for this
+# package.
+keywords = ["l-system", "lsystem", "grammar"]
+
+# This is a string description of the license for this package. Currently
+# crates.io will validate the license provided against a whitelist of known
+# license identifiers from http://spdx.org/licenses/. Multiple licenses can
+# be separated with a `/`
+license = "MIT"
+
+# If a project is using a nonstandard license, then this key may be specified in
+# lieu of the above key and must point to a file relative to this manifest
+# (similar to the readme key)
+# license-file = "LICENSE"
+
+[[bin]]
+name = "algae"
+path = "src/bin/algae_str.rs"
