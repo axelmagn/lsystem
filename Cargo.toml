@@ -1,0 +1,4 @@
+[package]
+name = "lsystem"
+version = "0.1.0"
+authors = ["Axel Magnuson <axelmagn@gmail.com>"]
