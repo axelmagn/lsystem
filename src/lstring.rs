@@ -54,26 +54,54 @@ pub mod tests {
         rules.set_str('B', "A");
         let axiom = "A".chars().collect();
         let mut system = LSystem::new(rules, axiom);
+
         let out = system.next().unwrap();
         let expected: Vec<char> = "AB".chars().collect();
         assert_eq!(expected, out);
+
         let out = system.next().unwrap();
         let expected: Vec<char> = "ABA".chars().collect();
         assert_eq!(expected, out);
+
         let out = system.next().unwrap();
         let expected: Vec<char> = "ABAAB".chars().collect();
         assert_eq!(expected, out);
+
         let out = system.next().unwrap();
         let expected: Vec<char> = "ABAABABA".chars().collect();
         assert_eq!(expected, out);
+
         let out = system.next().unwrap();
         let expected: Vec<char> = "ABAABABAABAAB".chars().collect();
         assert_eq!(expected, out);
+
         let out = system.next().unwrap();
         let expected: Vec<char> = "ABAABABAABAABABAABABA".chars().collect();
         assert_eq!(expected, out);
+        
         let out = system.next().unwrap();
         let expected: Vec<char> = "ABAABABAABAABABAABABAABAABABAABAAB".chars().collect();
+        assert_eq!(expected, out);
+    }
+
+    #[test]
+    fn test_pythagoras_tree() {
+        let mut rules = LStringRule::new();
+        rules.set_str('1', "11");
+        rules.set_str('0', "1[0]0");
+        let axiom = "0".chars().collect();
+        let mut system = LSystem::new(rules, axiom);
+
+        let out = system.next().unwrap();
+        let expected: Vec<char> = "1[0]0".chars().collect();
+        assert_eq!(expected, out);
+
+        let out = system.next().unwrap();
+        let expected: Vec<char> = "11[1[0]0]1[0]0".chars().collect();
+        assert_eq!(expected, out);
+
+        let out = system.next().unwrap();
+        let expected: Vec<char> = "1111[11[1[0]0]1[0]0]11[1[0]0]1[0]0".chars().collect();
         assert_eq!(expected, out);
     }
 }
