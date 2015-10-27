@@ -1,10 +1,9 @@
 extern crate lsystem;
 
 use lsystem::*;
-use lsystem::lstring::*;
 
 fn main() {
-    let mut rules = LStringRule::new();
+    let mut rules: MapRules<char> = MapRules::new();
     rules.set_str('A', "AB");
     rules.set_str('B', "A");
     let axiom = "A".chars().collect();
